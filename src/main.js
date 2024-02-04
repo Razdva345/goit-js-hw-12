@@ -12,7 +12,7 @@ const gallery = document.querySelector(".gallery");
 const loaderContainer = document.querySelector(".loader-container");
 const btnShowMore = document.querySelector(".show-btn");
 let currentPage = 1;
-let totalHits = 0;
+
 let currentQuery = "";
 function showLoader(loaderContainer) {
 	loaderContainer.style.display = "flex";
