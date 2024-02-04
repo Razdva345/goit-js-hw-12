@@ -43,7 +43,10 @@ button {
 	border: none;
 	cursor: pointer;
 }
-
+.show-btn {
+	margin-right: auto;
+	margin-left: auto;
+}
 .gallery {
 	display: flex;
 	flex-wrap: wrap;
