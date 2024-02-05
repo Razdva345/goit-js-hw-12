@@ -76,6 +76,7 @@ async function handleSearch(event) {
 		return;
 	}
 	gallery.innerHTML = "";
+	hideLoadMoreBtn();
 
 	try {
 		await fetchImage(query)
@@ -86,10 +87,9 @@ async function handleSearch(event) {
 						message:
 							"Sorry, there are no images matching your search query. Please try again!",
 					});
-					hideLoadMoreBtn();
+					// hideLoadMoreBtn();
 				} else showImagesCards(data.hits);
 				hideLoader(loaderContainer);
-				showLoadMoreBtn();
 			})
 			.finally(() => {
 				searchForm.reset();
@@ -162,4 +162,5 @@ function showImagesCards(images) {
 	});
 
 	lightbox.refresh();
+	showLoadMoreBtn();
 }
