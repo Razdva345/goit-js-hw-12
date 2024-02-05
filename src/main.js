@@ -53,13 +53,14 @@ function smoothScroll() {
 }
 
 hideLoadMoreBtn();
+gallery.innerHTML = "";
 
 searchForm.addEventListener("submit", handleSearch);
 hideLoader(loaderContainer);
 
 async function handleSearch(event) {
 	event.preventDefault();
-	currentPage = 1;
+	gallery.innerHTML = "";
 	showLoader(loaderContainer);
 	const form = event.currentTarget;
 	const query = form.elements.query.value;
@@ -74,6 +75,8 @@ async function handleSearch(event) {
 		gallery.innerHTML = "";
 		return;
 	}
+	gallery.innerHTML = "";
+
 	try {
 		await fetchImage(query)
 			.then(data => {
@@ -83,7 +86,7 @@ async function handleSearch(event) {
 						message:
 							"Sorry, there are no images matching your search query. Please try again!",
 					});
-					gallery.innerHTML = "";
+					hideLoadMoreBtn();
 				} else showImagesCards(data.hits);
 				hideLoader(loaderContainer);
 				showLoadMoreBtn();
