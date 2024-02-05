@@ -87,7 +87,6 @@ async function handleSearch(event) {
 						message:
 							"Sorry, there are no images matching your search query. Please try again!",
 					});
-					// hideLoadMoreBtn();
 				} else showImagesCards(data.hits);
 				hideLoader(loaderContainer);
 			})
